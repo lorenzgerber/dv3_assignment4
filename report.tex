@@ -69,12 +69,40 @@
 
 \section*{Problem 2, Reduction $ALL_{CFG}$ to $EQ_{CFG}$}
 If we can decide wether $L(E) \subseteq L(G)$ we could choose $L(G) =
-\Sigma*$ and decide it's universality. But we know that $ALL_{CFG}$ is
+\Sigma^{*}$ and decide it's universality. But we know that $ALL_{CFG}$ is
 not decidable. Hence $EQ_{CFG}$ is also not decidable. 
 
 \section*{Problem 3, Proof closure under compliment for reduction}
+This can be concluded from the logical equivalence: $p \leftrightarrow q$ is the same as $\neg p \leftrightarrow \neg q$. So $p = q \in A$ and $q = f(w) \in B$. $A /leq_{m} B$ means there is a total computable $f$ such that for all $w$, $w \in A \leftrightarrow f(w) \in B$. By the argument above, this is the same as $w \notin A \leftrightarrow f(w) \notin B$, or equivalently $w \in \bar{A} \leftrightarrow(w) \in \bar{B}$.
 
 \section*{Problem 4, Asymptotic Problems}
+\subsection*{a)}
+Find $c$:\\
+$\lim_{n \to \infty} \frac{f(n)}{f(g)}+1$ where \\
+$\lim_{n \to \infty}(\frac{5n^{4}+3n^{2}+4}{n^{4}})+1 = \lim_{n \to \infty}(5+ \frac{3}{n^{2}}+\frac{4}{n^{4}})+1 \implies c = 6$\\
+find $n_{0}$ by trial: $n_{0} = 2$ \\
+
+\subsection*{b)}
+First find by trial a $n$ where $2^{n} < n!$. Then proof by induction that this holds for all $n > n_{0}$.\\
+Choose $n_{0} = 4$\\
+Suppose thatn when $n = k(k \geq 4)$, we have that $k! > 2^{k}$.\\
+Now, prove that $(k + 1)! > 2^{k+1}$ when $n = (k + 1)(k \geq 4)$.\\
+$(k + 1)! = (k + 1)k! > (k + 1)2^{k}$.\\
+This implies $(k+1)! > 2^{k} \cdot 2$\\
+Therefore, $(k + 1)! > 2^{k+1}$\\
+Hence, $n! > 2^{n}$ for all integers $n \geq 4$\\
+
+\subsection*{c)} 
+Assume $2^{2n} = O(2^{n})$\\
+then $lim_{n \to \infty} \frac{f(n)}{g(n)}+1$\\
+but $lim_{n \to \infty} \frac{2^{2n}}{2^{n}} + 1 = \infty$
+hence, $2^{2n} \neq O(2^{n})$\\
+
+\subsection*{d)}
+For every constant $a$ there is a constant $c$ such that $(n + a)^{3} = O(n^{3})$ 
+
+
+
 
 
 \addcontentsline{toc}{section}{\refname}
