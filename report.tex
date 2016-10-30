@@ -66,14 +66,19 @@
 \pagenumbering{arabic}
 
 \section*{Problem 1, BLUE-RED-GREEN}
+Proof Idea: a similar construction as for the 3SAT-CLIQUE polynomial time reduction is used \cite[chapter 7, p.302]{sipser2012}. \\
+Let $\phi$ be a formula with $k$ clauses such as\\
+$\phi = (a_{1} \lor b_{1} \lor c_{1}) \land (a_{2} \lor b_{2} \lor c_{2}) \land \dotsm \land (a_{k} \lor b_{k} \lor c_{k})$. The reduction generates the string $\langle G,k \rangle$, where $G$ is a undirected graph defined as follows.
+The nodes in G are organized into $k$ groups of three nodes each called the triples, $t_{1}, \dotsc , t_{k}$. Each triple corresponds to one of the cluases in $\phi$, and each node in a triple corresponds to a literal in the associated clause. Label each node of $G$ with its corresponding literal in $\phi$. The edges of $G$ connect all but two tyopes of pairs of nodes in $G$. No edge is present between nodes in the same triple, and no edge is present between two nodes with contradictionary labels. Now, if some node does not connect to at least one node of all the other triples, assign the color BLUE to it. Then assign RED to a node connected with the prior BLUE node, and GREEN to a node connected with prior RED. When just nodes with connections to all other triples are left, they can be colored starting with an arbitrarly chosen node, first BLUE, then RED and finally GREEN. 
+
 
 \section*{Problem 2, Reduction $ALL_{CFG}$ to $EQ_{CFG}$}
 If we can decide wether $L(E) \subseteq L(G)$ we could choose $L(G) =
 \Sigma^{*}$ and decide it's universality. But we know that $ALL_{CFG}$ is
-not decidable. Hence $EQ_{CFG}$ is also not decidable. 
+not decidable. Hence $EQ_{CFG}$ is also not decidable \cite{universality}. 
 
 \section*{Problem 3, Proof closure under compliment for reduction}
-This can be concluded from the logical equivalence: $p \leftrightarrow q$ is the same as $\neg p \leftrightarrow \neg q$. So $p = q \in A$ and $q = f(w) \in B$. $A /leq_{m} B$ means there is a total computable $f$ such that for all $w$, $w \in A \leftrightarrow f(w) \in B$. By the argument above, this is the same as $w \notin A \leftrightarrow f(w) \notin B$, or equivalently $w \in \bar{A} \leftrightarrow(w) \in \bar{B}$.
+This can be concluded from the logical equivalence: $p \leftrightarrow q$ is the same as $\neg p \leftrightarrow \neg q$ \cite{mappingreduce}. So $p = q \in A$ and $q = f(w) \in B$. $A /leq_{m} B$ means there is a total computable $f$ such that for all $w$, $w \in A \leftrightarrow f(w) \in B$. By the argument above, this is the same as $w \notin A \leftrightarrow f(w) \notin B$, or equivalently $w \in \bar{A} \leftrightarrow(w) \in \bar{B}$.
 
 \section*{Problem 4, Asymptotic Problems}
 \subsection*{a)}
@@ -83,7 +88,7 @@ $\lim_{n \to \infty}(\frac{5n^{4}+3n^{2}+4}{n^{4}})+1 = \lim_{n \to \infty}(5+ \
 find $n_{0}$ by trial: $n_{0} = 2$ \\
 
 \subsection*{b)}
-First find by trial a $n$ where $2^{n} < n!$. Then proof by induction that this holds for all $n > n_{0}$.\\
+First find by trial a $n$ where $2^{n} < n!$. Then proof by induction that this holds for all $n > n_{0}$ \cite{induction}.\\
 Choose $n_{0} = 4$\\
 Suppose thatn when $n = k(k \geq 4)$, we have that $k! > 2^{k}$.\\
 Now, prove that $(k + 1)! > 2^{k+1}$ when $n = (k + 1)(k \geq 4)$.\\
